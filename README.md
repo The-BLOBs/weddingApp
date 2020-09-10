@@ -4,11 +4,8 @@
 ### sudo npm i -g expo-cli
 
 # npm:
-### expo install expo-camera
+### npm install expo-cli --global
 
 
 # to run:
 ### expo start
-
-
-npm install --global expo-cli
