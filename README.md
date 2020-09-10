@@ -9,3 +9,6 @@
 
 # to run:
 ### expo start
+
+
+npm install --global expo-cli
