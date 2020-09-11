@@ -1,15 +1,71 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import * as React from "react";
+import {
+  StyleSheet,
+  SafeAreaView,
+  Text,
+  View,
+  Button,
+  Alert,
+} from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
-export default function App() {
+function HomeScreen({ navigation }) {
   return (
-    <View style={styles.container}>
-      <Text>blob on your app!!!</Text>
+    <SafeAreaView style={styles.container}>
+      <Text>Home Screen</Text>
+      <Button
+        title="blob?"
+        onPress={() =>
+          Alert.alert("BLOB", "blob 😜", [
+            { text: "yes", onPress: () => Alert.alert("yes?", "thank you") },
+            { text: "no", onPress: () => Alert.alert("no?!", "🖕🏻🖕🏻🖕🏻") },
+          ])
+        }
+      />
+      <Button
+        title="Go to Blob"
+        onPress={() => navigation.navigate("page_2")}
+      />
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
+
+function DetailsScreen({ navigation }) {
+  return (
+    <SafeAreaView style={styles.container}>
+      <Text>blob Screen</Text>
+      <Button
+        title="Go to blob... again"
+        onPress={() => navigation.push("page_2")}
+      />
+      <Button title="Go to Home" onPress={() => navigation.navigate("Home")} />
+      <Button title="Go back" onPress={() => navigation.goBack()} />
+      <Button
+        title="Go back to first screen in stack"
+        onPress={() => navigation.popToTop()}
+      />
+      <StatusBar style="auto" />
+    </SafeAreaView>
+  );
+}
+
+const Stack = createStackNavigator();
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="page_2" component={DetailsScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default App;
 
 const styles = StyleSheet.create({
   container: {
