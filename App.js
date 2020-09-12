@@ -4,8 +4,10 @@ import {
   StyleSheet,
   SafeAreaView,
   Text,
-  View,
   Button,
+  View,
+  Image,
+  ImageBackground,
   Alert,
 } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
@@ -13,23 +15,35 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 function HomeScreen({ navigation }) {
   return (
-    <SafeAreaView style={styles.container}>
-      <Text>Home Screen</Text>
-      <Button
-        title="blob?"
-        onPress={() =>
-          Alert.alert("BLOB", "blob 😜", [
-            { text: "yes", onPress: () => Alert.alert("yes?", "thank you") },
-            { text: "no", onPress: () => Alert.alert("no?!", "🖕🏻🖕🏻🖕🏻") },
-          ])
-        }
-      />
-      <Button
-        title="Go to Blob"
-        onPress={() => navigation.navigate("page_2")}
-      />
-      <StatusBar style="auto" />
-    </SafeAreaView>
+    <ImageBackground
+      source={require("./Background_image.jpg")}
+      style={{
+        flex: 1,
+        width: 375,
+        flexDirection: "column",
+        resizeMode: "cover",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <SafeAreaView style={styles.container}>
+        <Text>Home Screen</Text>
+        <Button
+          title="blob?"
+          onPress={() =>
+            Alert.alert("BLOB", "blob 😜", [
+              { text: "yes", onPress: () => Alert.alert("yes?", "thank you") },
+              { text: "no", onPress: () => Alert.alert("no?!", "🖕🏻🖕🏻🖕🏻") },
+            ])
+          }
+        />
+        <Button
+          title="Go to Blob"
+          onPress={() => navigation.navigate("page_2")}
+        />
+        <StatusBar style="auto" />
+      </SafeAreaView>
+    </ImageBackground>
   );
 }
 
@@ -69,9 +83,8 @@ export default App;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
+    flex: 0.55,
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-end",
   },
 });
