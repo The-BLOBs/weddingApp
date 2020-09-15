@@ -26,20 +26,21 @@ function HomeScreen({ navigation }) {
         justifyContent: "center",
       }}
     >
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView
+        style={{
+          flex: 0.55,
+          alignItems: "center",
+          justifyContent: "flex-end",
+        }}
+      >
         <Text>Home Screen</Text>
         <Button
-          title="blob?"
-          onPress={() =>
-            Alert.alert("BLOB", "blob 😜", [
-              { text: "yes", onPress: () => Alert.alert("yes?", "thank you") },
-              { text: "no", onPress: () => Alert.alert("no?!", "🖕🏻🖕🏻🖕🏻") },
-            ])
-          }
+          title="Enter information"
+          onPress={() => navigation.navigate("getData")}
         />
         <Button
-          title="Go to Blob"
-          onPress={() => navigation.navigate("page_2")}
+          title="Go to info"
+          onPress={() => navigation.navigate("info")}
         />
         <StatusBar style="auto" />
       </SafeAreaView>
@@ -49,20 +50,56 @@ function HomeScreen({ navigation }) {
 
 function DetailsScreen({ navigation }) {
   return (
-    <SafeAreaView style={styles.container}>
-      <Text>blob Screen</Text>
-      <Button
-        title="Go to blob... again"
-        onPress={() => navigation.push("page_2")}
-      />
-      <Button title="Go to Home" onPress={() => navigation.navigate("Home")} />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
-      <Button
-        title="Go back to first screen in stack"
-        onPress={() => navigation.popToTop()}
-      />
-      <StatusBar style="auto" />
-    </SafeAreaView>
+    <ImageBackground
+      source={require("./Background_image.jpg")}
+      style={{
+        flex: 1,
+        width: 375,
+        flexDirection: "column",
+        resizeMode: "cover",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <SafeAreaView style={styles.container}>
+        <Text>blob Screen</Text>
+        <Button
+          title="Go to blob... again"
+          onPress={() => navigation.push("info")}
+        />
+        <Button
+          title="Go to Home"
+          onPress={() => navigation.navigate("Home")}
+        />
+        <Button title="Go back" onPress={() => navigation.goBack()} />
+        <Button
+          title="Go back to first screen in stack"
+          onPress={() => navigation.popToTop()}
+        />
+        <StatusBar style="auto" />
+      </SafeAreaView>
+    </ImageBackground>
+  );
+}
+
+function getData({ navigation }) {
+  return (
+    <ImageBackground
+      source={require("./Background_image.jpg")}
+      style={{
+        flex: 1,
+        width: 375,
+        flexDirection: "column",
+        resizeMode: "cover",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <SafeAreaView style={styles.container}>
+        <Text>gigi Screen</Text>
+        <StatusBar style="auto" />
+      </SafeAreaView>
+    </ImageBackground>
   );
 }
 
@@ -73,7 +110,8 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="page_2" component={DetailsScreen} />
+        <Stack.Screen name="info" component={DetailsScreen} />
+        <Stack.Screen name="getData" component={getData} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -83,8 +121,8 @@ export default App;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.55,
+    flex: 1,
     alignItems: "center",
-    justifyContent: "flex-end",
+    justifyContent: "center",
   },
 });
