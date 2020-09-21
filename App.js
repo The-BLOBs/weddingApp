@@ -70,7 +70,9 @@ function DetailsScreen({ navigation }) {
       }}
     >
       <SafeAreaView style={styles.container}>
-        <Text>blob Screen {data_dict["reception"]}</Text>
+        <Text>reception: {data_dict["reception"]}</Text>
+
+        <Text>marriage: {data_dict["marriage"]}</Text>
 
         <StatusBar style="auto" />
       </SafeAreaView>
@@ -97,23 +99,29 @@ const getData = () => {
         justifyContent: "center",
       }}
     >
-      <SafeAreaView
-        style={{
-          flex: 0.65,
-          alignItems: "center",
-          justifyContent: "flex-start",
-        }}
-      >
+      <SafeAreaView style={styles.container}>
         <Text>Reception:</Text>
         <TextInput
-          style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
+          style={{
+            height: 40,
+            width: 60,
+            borderColor: "gray",
+            backgroundColor: "#fff",
+            borderWidth: 1,
+          }}
           onChangeText={(text) => onChangeText1(text)}
           value={value1}
         />
 
         <Text>Marriage:</Text>
         <TextInput
-          style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
+          style={{
+            height: 40,
+            width: 60,
+            borderColor: "gray",
+            backgroundColor: "#fff",
+            borderWidth: 1,
+          }}
           onChangeText={(text) => onChangeText2(text)}
           value={value2}
         />
@@ -141,8 +149,8 @@ export default App;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 0.65,
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start",
   },
 });
