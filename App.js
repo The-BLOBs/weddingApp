@@ -51,6 +51,11 @@ function HomeScreen({ navigation }) {
   );
 }
 
+var data_dict = {
+  reception: " ",
+  marriage: " ",
+};
+
 function DetailsScreen({ navigation }) {
   return (
     <ImageBackground
@@ -65,20 +70,8 @@ function DetailsScreen({ navigation }) {
       }}
     >
       <SafeAreaView style={styles.container}>
-        <Text>blob Screen</Text>
-        <Button
-          title="Go to blob... again"
-          onPress={() => navigation.push("info")}
-        />
-        <Button
-          title="Go to Home"
-          onPress={() => navigation.navigate("Home")}
-        />
-        <Button title="Go back" onPress={() => navigation.goBack()} />
-        <Button
-          title="Go back to first screen in stack"
-          onPress={() => navigation.popToTop()}
-        />
+        <Text>blob Screen {data_dict["reception"]}</Text>
+
         <StatusBar style="auto" />
       </SafeAreaView>
     </ImageBackground>
@@ -86,11 +79,11 @@ function DetailsScreen({ navigation }) {
 }
 
 const getData = () => {
-  const [value1, onChangeText1] = React.useState("nigg");
-  const [value2, onChangeText2] = React.useState("nigg2");
+  const [value1, onChangeText1] = React.useState(data_dict["reception"]);
+  const [value2, onChangeText2] = React.useState(data_dict["marriage"]);
 
-  let reception = value1;
-  let marriage = value2;
+  data_dict["reception"] = value1;
+  data_dict["marriage"] = value2;
 
   return (
     <ImageBackground
