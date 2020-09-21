@@ -1,5 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import * as React from "react";
+import { Component } from "react";
+import * as Print from "expo-print";
 import {
   StyleSheet,
   SafeAreaView,
@@ -8,6 +10,7 @@ import {
   View,
   Image,
   ImageBackground,
+  TextInput,
   Alert,
 } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
@@ -82,7 +85,49 @@ function DetailsScreen({ navigation }) {
   );
 }
 
-function getData({ navigation }) {
+const getData = () => {
+  const [value1, onChangeText1] = React.useState("nigg");
+  const [value2, onChangeText2] = React.useState("nigg2");
+
+  return (
+    <ImageBackground
+      source={require("./Background_image.jpg")}
+      style={{
+        flex: 1,
+        width: 375,
+        flexDirection: "column",
+        resizeMode: "cover",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <SafeAreaView
+        style={{
+          flex: 0.65,
+          alignItems: "center",
+          justifyContent: "flex-start",
+        }}
+      >
+        <TextInput
+          style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
+          onChangeText={(text) => onChangeText1(text)}
+          value={value1}
+        />
+        <TextInput
+          style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
+          onChangeText={(text) => onChangeText2(text)}
+          value={value2}
+        />
+        <Text>{value1}</Text>
+        <Text>{value2}</Text>
+        <StatusBar style="auto" />
+      </SafeAreaView>
+    </ImageBackground>
+  );
+};
+
+/*
+function get_Data({ navigation }) {
   return (
     <ImageBackground
       source={require("./Background_image.jpg")}
@@ -96,12 +141,13 @@ function getData({ navigation }) {
       }}
     >
       <SafeAreaView style={styles.container}>
-        <Text>gigi Screen</Text>
+        <Text>blbblblblbl</Text>
         <StatusBar style="auto" />
       </SafeAreaView>
     </ImageBackground>
   );
 }
+*/
 
 const Stack = createStackNavigator();
 
