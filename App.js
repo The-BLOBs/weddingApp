@@ -89,6 +89,9 @@ const getData = () => {
   const [value1, onChangeText1] = React.useState("nigg");
   const [value2, onChangeText2] = React.useState("nigg2");
 
+  let reception = value1;
+  let marriage = value2;
+
   return (
     <ImageBackground
       source={require("./Background_image.jpg")}
@@ -108,46 +111,24 @@ const getData = () => {
           justifyContent: "flex-start",
         }}
       >
+        <Text>Reception:</Text>
         <TextInput
           style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
           onChangeText={(text) => onChangeText1(text)}
           value={value1}
         />
+
+        <Text>Marriage:</Text>
         <TextInput
           style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
           onChangeText={(text) => onChangeText2(text)}
           value={value2}
         />
-        <Text>{value1}</Text>
-        <Text>{value2}</Text>
         <StatusBar style="auto" />
       </SafeAreaView>
     </ImageBackground>
   );
 };
-
-/*
-function get_Data({ navigation }) {
-  return (
-    <ImageBackground
-      source={require("./Background_image.jpg")}
-      style={{
-        flex: 1,
-        width: 375,
-        flexDirection: "column",
-        resizeMode: "cover",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <SafeAreaView style={styles.container}>
-        <Text>blbblblblbl</Text>
-        <StatusBar style="auto" />
-      </SafeAreaView>
-    </ImageBackground>
-  );
-}
-*/
 
 const Stack = createStackNavigator();
 
