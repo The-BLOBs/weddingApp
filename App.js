@@ -68,6 +68,7 @@ function DetailsScreen({ navigation }) {
       }}
     >
       <SafeAreaView style={styles.container}>
+        <Text style={styles.baseText}>EXP: I am bold and red</Text>
         <Text>info: {data_dict["FreeText"]}</Text>
 
         <Text>reception: {data_dict["reception"]}</Text>
@@ -155,5 +156,9 @@ const styles = StyleSheet.create({
     borderColor: "gray",
     backgroundColor: "#fff",
     borderWidth: 1,
+  },
+  baseText: {
+    fontWeight: "bold",
+    color: "red",
   },
 });
