@@ -54,6 +54,7 @@ function HomeScreen({ navigation }) {
 var data_dict = {
   reception: " ",
   marriage: " ",
+  FreeText: " ",
 };
 
 function DetailsScreen({ navigation }) {
@@ -70,6 +71,8 @@ function DetailsScreen({ navigation }) {
       }}
     >
       <SafeAreaView style={styles.container}>
+        <Text>info: {data_dict["FreeText"]}</Text>
+
         <Text>reception: {data_dict["reception"]}</Text>
 
         <Text>marriage: {data_dict["marriage"]}</Text>
@@ -83,9 +86,11 @@ function DetailsScreen({ navigation }) {
 const getData = () => {
   const [value1, onChangeText1] = React.useState(data_dict["reception"]);
   const [value2, onChangeText2] = React.useState(data_dict["marriage"]);
+  const [value3, onChangeText3] = React.useState(data_dict["FreeText"]);
 
   data_dict["reception"] = value1;
   data_dict["marriage"] = value2;
+  data_dict["FreeText"] = value3;
 
   return (
     <ImageBackground
@@ -100,28 +105,22 @@ const getData = () => {
       }}
     >
       <SafeAreaView style={styles.container}>
+        <Text>Free Text:</Text>
+        <TextInput
+          style={styles.Text_container}
+          onChangeText={(text) => onChangeText3(text)}
+          value={value3}
+        />
         <Text>Reception:</Text>
         <TextInput
-          style={{
-            height: 40,
-            width: 60,
-            borderColor: "gray",
-            backgroundColor: "#fff",
-            borderWidth: 1,
-          }}
+          style={styles.Text_container}
           onChangeText={(text) => onChangeText1(text)}
           value={value1}
         />
 
         <Text>Marriage:</Text>
         <TextInput
-          style={{
-            height: 40,
-            width: 60,
-            borderColor: "gray",
-            backgroundColor: "#fff",
-            borderWidth: 1,
-          }}
+          style={styles.Text_container}
           onChangeText={(text) => onChangeText2(text)}
           value={value2}
         />
@@ -152,5 +151,12 @@ const styles = StyleSheet.create({
     flex: 0.65,
     alignItems: "center",
     justifyContent: "flex-start",
+  },
+  Text_container: {
+    height: 40,
+    width: 60,
+    borderColor: "gray",
+    backgroundColor: "#fff",
+    borderWidth: 1,
   },
 });
