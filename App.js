@@ -41,10 +41,7 @@ function HomeScreen({ navigation }) {
           title="Enter information"
           onPress={() => navigation.navigate("getData")}
         />
-        <Button
-          title="Go to info"
-          onPress={() => navigation.navigate("info")}
-        />
+        <Button title="Get info" onPress={() => navigation.navigate("info")} />
         <StatusBar style="auto" />
       </SafeAreaView>
     </ImageBackground>
