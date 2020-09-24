@@ -1,6 +1,6 @@
 # weeddingApp
 
-(The examples are presentations on the iPhone 8 but works perfect on all other devices)
+(The examples are presentations on the iPhone 11 pro but works perfect on all other devices)
 # Preview:
 <img src="https://github.com/The-BLOBs/weddingApp/blob/master/How_does_it_look/HomePage.jpg" width="300" height="600" />
 
