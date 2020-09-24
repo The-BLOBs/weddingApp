@@ -46,7 +46,10 @@ function HomeScreen({ navigation }) {
           title="Enter information"
           onPress={() => navigation.navigate("get-info")}
         />
-        <Button title="Get info" onPress={() => navigation.navigate("info")} />
+        <Button
+          title="Get information"
+          onPress={() => navigation.navigate("info")}
+        />
         <StatusBar style="auto" />
       </SafeAreaView>
     </ImageBackground>
@@ -82,24 +85,27 @@ function DetailsScreen({ navigation }) {
       <SafeAreaView style={styles.container}>
         <Text
           style={{
-            fontSize: 20,
+            fontSize: 5,
           }}
         >
           {" "}
         </Text>
-        <Text style={text_font}>info: {data_dict["FreeText"]}</Text>
+        <Text style={text_font}>info:</Text>
+        <Text style={text_font}>{data_dict["FreeText"]}</Text>
 
         <Text
           style={{
-            fontSize: 210,
+            fontSize: 170,
           }}
         >
           {" "}
         </Text>
 
-        <Text style={text_font}>reception: {data_dict["reception"]}</Text>
+        <Text style={text_font}>reception:</Text>
+        <Text style={text_font}>{data_dict["reception"]}</Text>
 
-        <Text style={text_font}>marriage: {data_dict["marriage"]}</Text>
+        <Text style={text_font}>marriage:</Text>
+        <Text style={text_font}>{data_dict["marriage"]}</Text>
 
         <StatusBar style="auto" />
       </SafeAreaView>
@@ -207,10 +213,5 @@ const styles = StyleSheet.create({
     borderColor: "gray",
     backgroundColor: "#fff",
     borderWidth: 1,
-  },
-  baseText: {
-    fontSize: 26,
-    fontWeight: "bold",
-    color: "#000",
   },
 });
