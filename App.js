@@ -1,5 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import * as React from "react";
+import {
+  useFonts,
+  Allan_400Regular,
+  Allan_700Bold,
+} from "@expo-google-fonts/allan";
+import { AppLoading } from "expo";
 import { Component } from "react";
 import * as Print from "expo-print";
 import {
@@ -39,7 +45,7 @@ function HomeScreen({ navigation }) {
         <Text>Home Screen</Text>
         <Button
           title="Enter information"
-          onPress={() => navigation.navigate("getData")}
+          onPress={() => navigation.navigate("get-info")}
         />
         <Button title="Get info" onPress={() => navigation.navigate("info")} />
         <StatusBar style="auto" />
@@ -55,6 +61,12 @@ var data_dict = {
 };
 
 function DetailsScreen({ navigation }) {
+  let [fontsLoaded] = useFonts({
+    Allan_400Regular,
+    Allan_700Bold,
+  });
+  let fontSize = 32;
+  let paddingVertical = 6;
   return (
     <ImageBackground
       source={require("./Background_image.jpg")}
@@ -68,11 +80,50 @@ function DetailsScreen({ navigation }) {
       }}
     >
       <SafeAreaView style={styles.container}>
-        <Text style={styles.baseText}>info: {data_dict["FreeText"]}</Text>
+        <Text
+          style={{
+            fontSize: 20,
+          }}
+        >
+          {" "}
+        </Text>
+        <Text
+          style={{
+            fontSize,
+            paddingVertical,
+            fontFamily: "Allan_700Bold",
+          }}
+        >
+          info: {data_dict["FreeText"]}
+        </Text>
 
-        <Text style={styles.baseText}>reception: {data_dict["reception"]}</Text>
+        <Text
+          style={{
+            fontSize: 210,
+          }}
+        >
+          {" "}
+        </Text>
 
-        <Text style={styles.baseText}>marriage: {data_dict["marriage"]}</Text>
+        <Text
+          style={{
+            fontSize,
+            paddingVertical,
+            fontFamily: "Allan_700Bold",
+          }}
+        >
+          reception: {data_dict["reception"]}
+        </Text>
+
+        <Text
+          style={{
+            fontSize,
+            paddingVertical,
+            fontFamily: "Allan_700Bold",
+          }}
+        >
+          marriage: {data_dict["marriage"]}
+        </Text>
 
         <StatusBar style="auto" />
       </SafeAreaView>
@@ -81,6 +132,13 @@ function DetailsScreen({ navigation }) {
 }
 
 const getData = () => {
+  let [fontsLoaded] = useFonts({
+    Allan_400Regular,
+    Allan_700Bold,
+  });
+  let fontSize = 32;
+  let paddingVertical = 6;
+
   const [value1, onChangeText1] = React.useState(data_dict["reception"]);
   const [value2, onChangeText2] = React.useState(data_dict["marriage"]);
   const [value3, onChangeText3] = React.useState(data_dict["FreeText"]);
@@ -102,20 +160,60 @@ const getData = () => {
       }}
     >
       <SafeAreaView style={styles.container}>
-        <Text style={styles.baseText}>Free Text:</Text>
+        <Text
+          style={{
+            fontSize: 20,
+          }}
+        >
+          {" "}
+        </Text>
+        <Text
+          style={{
+            fontSize,
+            paddingVertical,
+            fontFamily: "Allan_700Bold",
+          }}
+        >
+          Free Text:
+        </Text>
         <TextInput
           style={styles.Text_container}
           onChangeText={(text) => onChangeText3(text)}
           value={value3}
         />
-        <Text style={styles.baseText}>Reception:</Text>
+
+        <Text
+          style={{
+            fontSize: 170,
+          }}
+        >
+          {" "}
+        </Text>
+
+        <Text
+          style={{
+            fontSize,
+            paddingVertical,
+            fontFamily: "Allan_700Bold",
+          }}
+        >
+          Reception:
+        </Text>
         <TextInput
           style={styles.Text_container}
           onChangeText={(text) => onChangeText1(text)}
           value={value1}
         />
 
-        <Text style={styles.baseText}>Marriage:</Text>
+        <Text
+          style={{
+            fontSize,
+            paddingVertical,
+            fontFamily: "Allan_700Bold",
+          }}
+        >
+          Marriage:
+        </Text>
         <TextInput
           style={styles.Text_container}
           onChangeText={(text) => onChangeText2(text)}
@@ -135,7 +233,7 @@ function App() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="info" component={DetailsScreen} />
-        <Stack.Screen name="getData" component={getData} />
+        <Stack.Screen name="get-info" component={getData} />
       </Stack.Navigator>
     </NavigationContainer>
   );
