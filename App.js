@@ -68,12 +68,11 @@ function DetailsScreen({ navigation }) {
       }}
     >
       <SafeAreaView style={styles.container}>
-        <Text style={styles.baseText}>EXP: I am bold and red</Text>
-        <Text>info: {data_dict["FreeText"]}</Text>
+        <Text style={styles.baseText}>info: {data_dict["FreeText"]}</Text>
 
-        <Text>reception: {data_dict["reception"]}</Text>
+        <Text style={styles.baseText}>reception: {data_dict["reception"]}</Text>
 
-        <Text>marriage: {data_dict["marriage"]}</Text>
+        <Text style={styles.baseText}>marriage: {data_dict["marriage"]}</Text>
 
         <StatusBar style="auto" />
       </SafeAreaView>
@@ -103,20 +102,20 @@ const getData = () => {
       }}
     >
       <SafeAreaView style={styles.container}>
-        <Text>Free Text:</Text>
+        <Text style={styles.baseText}>Free Text:</Text>
         <TextInput
           style={styles.Text_container}
           onChangeText={(text) => onChangeText3(text)}
           value={value3}
         />
-        <Text>Reception:</Text>
+        <Text style={styles.baseText}>Reception:</Text>
         <TextInput
           style={styles.Text_container}
           onChangeText={(text) => onChangeText1(text)}
           value={value1}
         />
 
-        <Text>Marriage:</Text>
+        <Text style={styles.baseText}>Marriage:</Text>
         <TextInput
           style={styles.Text_container}
           onChangeText={(text) => onChangeText2(text)}
@@ -146,19 +145,20 @@ export default App;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.65,
+    flex: 0.69,
     alignItems: "center",
     justifyContent: "flex-start",
   },
   Text_container: {
-    height: 40,
-    width: 60,
+    height: 38.5,
+    width: 150,
     borderColor: "gray",
     backgroundColor: "#fff",
     borderWidth: 1,
   },
   baseText: {
+    fontSize: 26,
     fontWeight: "bold",
-    color: "red",
+    color: "#000",
   },
 });
