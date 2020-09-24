@@ -42,7 +42,6 @@ function HomeScreen({ navigation }) {
           justifyContent: "flex-end",
         }}
       >
-        <Text>Home Screen</Text>
         <Button
           title="Enter information"
           onPress={() => navigation.navigate("get-info")}
@@ -67,6 +66,7 @@ function DetailsScreen({ navigation }) {
   });
   let fontSize = 32;
   let paddingVertical = 6;
+  const text_font = { fontSize, paddingVertical, fontFamily: "Allan_700Bold" };
   return (
     <ImageBackground
       source={require("./Background_image.jpg")}
@@ -87,15 +87,7 @@ function DetailsScreen({ navigation }) {
         >
           {" "}
         </Text>
-        <Text
-          style={{
-            fontSize,
-            paddingVertical,
-            fontFamily: "Allan_700Bold",
-          }}
-        >
-          info: {data_dict["FreeText"]}
-        </Text>
+        <Text style={text_font}>info: {data_dict["FreeText"]}</Text>
 
         <Text
           style={{
@@ -105,25 +97,9 @@ function DetailsScreen({ navigation }) {
           {" "}
         </Text>
 
-        <Text
-          style={{
-            fontSize,
-            paddingVertical,
-            fontFamily: "Allan_700Bold",
-          }}
-        >
-          reception: {data_dict["reception"]}
-        </Text>
+        <Text style={text_font}>reception: {data_dict["reception"]}</Text>
 
-        <Text
-          style={{
-            fontSize,
-            paddingVertical,
-            fontFamily: "Allan_700Bold",
-          }}
-        >
-          marriage: {data_dict["marriage"]}
-        </Text>
+        <Text style={text_font}>marriage: {data_dict["marriage"]}</Text>
 
         <StatusBar style="auto" />
       </SafeAreaView>
@@ -138,6 +114,8 @@ const getData = () => {
   });
   let fontSize = 32;
   let paddingVertical = 6;
+
+  const text_font = { fontSize, paddingVertical, fontFamily: "Allan_700Bold" };
 
   const [value1, onChangeText1] = React.useState(data_dict["reception"]);
   const [value2, onChangeText2] = React.useState(data_dict["marriage"]);
@@ -167,15 +145,7 @@ const getData = () => {
         >
           {" "}
         </Text>
-        <Text
-          style={{
-            fontSize,
-            paddingVertical,
-            fontFamily: "Allan_700Bold",
-          }}
-        >
-          Free Text:
-        </Text>
+        <Text style={text_font}>Free Text:</Text>
         <TextInput
           style={styles.Text_container}
           onChangeText={(text) => onChangeText3(text)}
@@ -190,30 +160,14 @@ const getData = () => {
           {" "}
         </Text>
 
-        <Text
-          style={{
-            fontSize,
-            paddingVertical,
-            fontFamily: "Allan_700Bold",
-          }}
-        >
-          Reception:
-        </Text>
+        <Text style={text_font}>Reception:</Text>
         <TextInput
           style={styles.Text_container}
           onChangeText={(text) => onChangeText1(text)}
           value={value1}
         />
 
-        <Text
-          style={{
-            fontSize,
-            paddingVertical,
-            fontFamily: "Allan_700Bold",
-          }}
-        >
-          Marriage:
-        </Text>
+        <Text style={text_font}>Marriage:</Text>
         <TextInput
           style={styles.Text_container}
           onChangeText={(text) => onChangeText2(text)}
