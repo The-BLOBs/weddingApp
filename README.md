@@ -1,5 +1,15 @@
 # weeddingApp
 
+(The examples are presentations on the iPhone 8 but works perfect on all other devices)
+# Preview:
+<img src="https://github.com/The-BLOBs/weddingApp/blob/master/How_does_it_look/HomePage.jpg" width="300" height="600" />
+
+# The part of the event owner:
+<img src="https://github.com/The-BLOBs/weddingApp/blob/master/How_does_it_look/getData.jpg" width="300" height="600" />
+
+# The part of the guest:
+<img src="https://github.com/The-BLOBs/weddingApp/blob/master/How_does_it_look/info.jpg" width="300" height="600" />
+
 # on mac/linux:
 ### sudo npm i -g expo-cli
 
