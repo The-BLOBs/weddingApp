@@ -10,6 +10,7 @@ expo install react-native-reanimated react-native-gesture-handler react-native-s
 
 npm install @react-navigation/native @react-navigation/stack
 
+expo install @expo-google-fonts/allan expo-font
 
 # to run:
 ### expo start
